@@ -1,0 +1,245 @@
+/* Kode ini untuk dapat menentukan dimensi kotak dengan tepat,
+   tanpa dipengaruhi oleh padding dan border. */
+   * {
+    box-sizing: border-box;
+  }
+  
+  body {
+      font-family: 'Quicksand', sans-serif;  /* Ini untuk mengatur front untuk website profil (secara keseluruhan) */
+      /* kedua kode ini untuk menyesuaikan padding dan margin pada elemen body dan main 
+         supaya struktur konten secara keseluruhan full horizontal di web*/
+      margin: 0;
+      padding: 0;
+    }
+     
+    h2, h3 {   /* Ini untuk mewarnai tulisan header yang ada di body */
+      color: #4f6e94;
+    }
+     
+    footer {  /* Ini untuk mengatur footer (struktur paling bawah website) seperti copyright, dengan membuat padding supaya lebih menarik */
+      padding: 10px;
+      color: white;
+      background: rgb(182,145,161);
+      background: radial-gradient(circle, rgba(182,145,161,1) 0%, rgba(140,172,210,1) 100%); 
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    /* Ini untuk mengatur warna teks pada navigasi website profil */
+    nav a {
+      font-size: 18px;
+  
+      font-weight: 400;
+      text-decoration: none;
+  
+      color: white;
+    }
+    
+    /* Ini untuk mengatur gambar yg ada di profil */
+    nav a:hover {
+      font-weight: bold;
+    }
+     
+    .profile header {
+      text-align: center;
+    }
+     
+    .image {
+      width: 75%;
+      max-height: 400px;
+      /* 2 kode dibawah ini supaya gambar yg ditampilkan bisa seimbang */
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    .image2 {
+      width: 60%;
+      max-height: 600px;
+      /* 2 kode dibawah ini supaya gambar yg ditampilkan bisa seimbang */
+      object-fit: cover;
+      object-position: center;
+    }
+  
+    /* Ini untuk mengatur logo*/
+    .profile img {
+      max-width: 100px;
+    }
+  
+    /*-----------------------------------------------------------------------------------------------*/
+    /* Ini untuk memberi efek kartu dengan tampilan box shadow */
+    .card {
+      box-shadow: 0 5px 10px 0 #b691a1;
+      border-radius: 5px;
+      padding: 20px;
+    }
+  
+    /*-----------------------------------------------------------------------------------------------*/
+    /* Ini untuk mempercantik header (mempercantik header dengan diberi padding dan diberi warna) */
+    .jumbotron { /* ini nama class nya */
+      font-size: 20px;
+      padding: 60px;
+      background: rgb(182,145,161);
+      background: radial-gradient(circle, rgba(182,145,161,1) 0%, rgba(140,172,210,1) 100%);
+      text-align: center;
+      color: white;
+    }
+  
+    /*-----------------------------------------------------------------------------------------------*/
+    /* kode 1 penerapan flexbock*/
+    nav ul {
+      padding-inline: 4rem;
+      display: flex;
+  
+      gap: 2rem;
+    }
+  
+    /* kode 2 penerapan flexbock*/
+    nav li {
+      list-style-type: none;
+    }
+  
+    /* Ini untuk mengatur warna pada navigasi agar sesuai dengan header */
+    nav {
+      background: rgb(182,145,161);
+      background: radial-gradient(circle, rgba(182,145,161,1) 0%, rgba(140,172,210,1) 100%);
+      padding: 5px;
+      position: sticky;
+      top: 0; /* top 0 ini diperlukan supaya navigasi tetap berada di atas jendela ketika user scroll kebawah */
+    }
+  
+  
+    /* Ini untuk mengatur jarak di dalam elemen <main> agar lebih nyaman dilihat */
+    main {
+      padding: 20px;
+      display: flex;
+      gap: 1.5rem;
+    }
+  
+    /*-----------------------------------------------------------------------------------------------*/
+    /* Melakukan relayouting halaman web dengan teknik float 
+       kode ini untuk tampilan website menjadi 2 bagian
+       untuk konten di sebelah kiri dengan panjang 75% */
+  
+    #content {
+      flex: 5;
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 1rem 2rem;
+    }
+  
+    /* kode ini untuk aside dengan (profil kota bandung) menjadi disebelah kiri dari konten  */
+    aside {
+      flex: 1;
+    }
+  
+    /* kode ini untuk menahan navigasi */ 
+    header {
+      display: inline;
+    }
+  
+    /* Perangkat dengan lebar layar 1200px dan di bawahnya */
+    @media screen and (max-width: 1200px) {
+      main {
+        flex-flow: column nowrap;
+      }
+      main aside {
+        align-self: center;
+      }
+    }
+    
+    /* Perangkat dengan lebar layar 768px dan di bawahnya */
+    @media screen and (max-width: 768px) {
+      nav ul {
+        justify-content: center;
+      }
+      main aside {
+        align-self: stretch;
+      }
+    }
+
+/*Loading*/
+.loading-wave {
+  width: 300px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.loading-bar {
+  width: 20px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #3498db;
+  border-radius: 5px;
+  animation: loading-wave-animation 1s ease-in-out infinite;
+}
+
+.loading-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loading-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loading-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes loading-wave-animation {
+  0% {
+    height: 10px;
+  }
+
+  50% {
+    height: 50px;
+  }
+
+  100% {
+    height: 10px;
+  }
+}
+
+
+/*Scroll*/
+#scroll-top {
+  position: fixed;
+  top: -140%;
+  right: 3rem;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  background: #8cacd2;
+  color: white;
+  border-radius: 10px;
+  transition: 1s linear;
+  z-index: 1;
+}
+
+#scroll-top.active {
+  top: calc(100% - 7rem);
+}
+
+@media (max-width: 568px) {
+  #scroll-top {
+    top: 140%;
+  }
+}
+
+/*Media Sosial*/
+button {
+  padding: 5px 10px;
+  background-color: #6590c5; /* Warna Facebook */
+  color: white;
+  border: none;
+  border-radius: 2px;
+  margin: 2px;
+} */
+
+button:hover {
+  background-color: #6590c5; Warna Facebook Hover */
+}  
+
+
+
+
